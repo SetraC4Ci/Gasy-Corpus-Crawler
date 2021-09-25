@@ -9,7 +9,7 @@ if(not os.path.exists("data") and not os.path.isdir("data")):
     os.mkdir("data")
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(10)
+driver.implicitly_wait(5)
 
 adress_list_file = open(os.path.join("urls", "wiki_urls.txt"))
 adresses = adress_list_file.readlines()

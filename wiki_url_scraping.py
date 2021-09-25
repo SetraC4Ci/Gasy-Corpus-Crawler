@@ -8,7 +8,7 @@ if(not os.path.exists("urls") and not os.path.isdir("urls")):
     os.mkdir("urls")
 
 driver = webdriver.Chrome()
-driver.implicitly_wait(10)
+driver.implicitly_wait(5)
 
 BASE = "https://mg.wikipedia.org/wiki/Manokana:Pejy_rehetra"
 
