@@ -7,7 +7,7 @@ import sys
 import threading
 from bs4 import BeautifulSoup
 from tqdm import tqdm
-from multiprocessing import Process
+from multiprocessing import Process, cpu_count
 
 if not os.path.exists(os.path.join("urls", "wiki_urls.txt")):
     raise FileNotFoundError(
@@ -52,18 +52,6 @@ def scrape(url_to_scrape: list, process_nr: int, thread_nr: int):
             else:
                 with open(os.path.join("urls", "wiki_failed.txt"), "a", encoding="utf-8") as f:
                     f.write(url + "\n")
-                # print("error with url " + url)
-                # print("====================================")
-                # print(e)
-                # print("====================================")
-
-
-def replace_line(file_name, line_num, text):
-    lines = open(file_name, 'r').readlines()
-    lines[line_num] = text
-    out = open(file_name, 'w')
-    out.writelines(lines)
-    out.close()
 
 
 def handler(signum, frame):
@@ -117,4 +105,4 @@ def processTaskNoThread(np=4):
     print("Exited main process")
 
 if __name__ == '__main__':
-    processTaskNoThread(np=32)
+    processTaskNoThread(np=cpu_count())
