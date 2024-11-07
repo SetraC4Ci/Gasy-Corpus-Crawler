@@ -8,6 +8,7 @@ if(not os.path.exists("urls") and not os.path.isdir("urls")):
 
 SITE = "https://mg.wikipedia.org"
 BASE = "https://mg.wikipedia.org/wiki/Manokana:Pejy_rehetra"
+# https://mg.wikipedia.org/w/index.php?title=Manokana:Pejy_rehetra&from=94994+%282001+YM128%29
 
 adress_list = []
 
